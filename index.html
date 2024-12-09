@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Time Alert</title>
+</head>
+<body>
+    <h1>Select a City</h1>
+    <select id="city-select">
+        <option value="" selected disabled>--Select City--</option>
+        <option value="Europe/Paris">Paris 🇫🇷</option>
+        <option value="Asia/Tokyo">Tokyo 🇯🇵</option>
+        <option value="Australia/Sydney">Sydney 🇦🇺</option>
+    </select>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.34/moment-timezone-with-data.min.js"></script>
+    <script>
+        document.getElementById('city-select').addEventListener('change', function() {
+            const selectedCity = this.value;
+            const currentTime = moment.tz(selectedCity).format('dddd, MMMM D, YYYY h:mm A');
+            alert(`It is ${currentTime} in ${selectedCity}`);
+        });
+    </script>
+</body>
+</html>
